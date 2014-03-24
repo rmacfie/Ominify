@@ -39,6 +39,9 @@
     <Reference Include="System.Runtime.Caching" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Ominifier.cs" />
     <Compile Include="OminifyExtensions.cs" />
     <Compile Include="OminifyOptions.cs" />

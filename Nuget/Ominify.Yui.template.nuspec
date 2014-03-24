@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Ominify.Yui</id>
+        <version>0.0.0</version>
+        <title>Ominify.Yui</title>
+        <authors>Robert Macfie</authors>
+        <owners>iobe</owners>
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/rmacfie/Ominify</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Simple minification middleware for OWIN.</description>
+        <summary />
+        <copyright>Robert Macfie</copyright>
+        <tags></tags>
+        <dependencies>
+            <dependency id="Ominify.Core" version="0.1" />
+            <dependency id="YUICompressor.NET" version="2.4" />
+        </dependencies>
+    </metadata>
+</package>

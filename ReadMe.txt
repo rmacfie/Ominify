@@ -1,6 +1,6 @@
 # Ominify #
 
-Lightweight minification middleware for OWIN.
+Simple minification middleware for OWIN.
 
 
 ### Usage ###
