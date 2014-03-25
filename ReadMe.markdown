@@ -39,12 +39,12 @@ Secondly, configure the Ominifier in your OWIN startup class.
         }
     }
 
-Then, you can get an url to the package by calling Ominifier.GetElement(packagePath). The url will have a timestamp corresponding to the last modification time of any of the included files. When a browser calls the url, Ominify will return all the included files, minified and combined into one result.
+Then, you can get an url to the package by calling Ominifier.GetUrl(packagePath). The url will have a timestamp corresponding to the last modification time of any of the included files. When a browser calls the url, Ominify will return all the included files, minified and combined into one result.
 
     var url = Ominifier.GetUrl("/content/css/minified.css");
     // returns: /content/css/minified.css?t=986439696586564
 
-Or, get the whole element:
+Or, get the whole element with Ominifier.GetElement(packagePath):
 
     var htmlElement = Ominifier.GetElement("/content/css/minified.css");
     // returns: <link rel="stylesheet" href="/content/css/minified.css?t=986439696586564" />
