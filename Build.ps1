@@ -79,7 +79,7 @@ Copy-Item "$rootDir\License.txt" "$buildDir"
 
 Create-NugetPackage `
     "Ominify.Core" `
-    $fullVersion `
+    $versionDetails.fullVersion `
     "$rootDir\Nuget\Ominify.Core.template.nuspec" `
     "$rootDir\Nuget\NuGet.exe" `
     "$buildDir" `
@@ -89,7 +89,7 @@ Create-NugetPackage `
 
 Create-NugetPackage `
     "Ominify.Yui" `
-    $fullVersion `
+    $versionDetails.fullVersion `
     "$rootDir\Nuget\Ominify.Yui.template.nuspec" `
     "$rootDir\Nuget\NuGet.exe" `
     "$buildDir" `

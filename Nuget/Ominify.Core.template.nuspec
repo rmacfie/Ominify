@@ -15,8 +15,5 @@
         <dependencies>
             <dependency id="Owin" version="1.0" />
         </dependencies>
-        <frameworkAssemblies>
-            <frameworkAssembly assemblyName="System.Runtime.Caching" />
-        </frameworkAssemblies>
     </metadata>
 </package>
