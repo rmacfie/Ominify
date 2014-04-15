@@ -1,8 +1,15 @@
+0.2.1
+
++ Fixed version reference between packages
+
+============================================================
+
 0.2.0
 
 + Added ability to specify custom version algorithm
 
 ============================================================
+
 0.1.1
 
 + Fixed Nuget package problem (broken framework reference)

@@ -55,6 +55,7 @@ Function Create-NugetPackage (
     
     (Get-Content "$nuspecTemplate") `
         | ForEach-Object { $_ -Replace "<version>0.0.0</version>", "<version>$fullVersion</version>" } `
+        | ForEach-Object { $_ -Replace "version=`"0.0.0`"", "version=`"$fullVersion`"" } `
         | Set-Content "$sourceDir\Nuget\$packageName\$packageName.nuspec" -Encoding UTF8
 
     & "$nugetExePath" Pack "$sourceDir\Nuget\$packageName\$packageName.nuspec" -OutputDirectory "$outputDir"

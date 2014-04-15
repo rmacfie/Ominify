@@ -15,7 +15,7 @@
         <copyright>Robert Macfie</copyright>
         <tags></tags>
         <dependencies>
-            <dependency id="Ominify.Core" version="0.1" />
+            <dependency id="Ominify.Core" version="0.0.0" />
             <dependency id="YUICompressor.NET" version="2.4" />
         </dependencies>
     </metadata>
