@@ -1,10 +1,24 @@
 namespace Ominify
 {
+    using System;
     using System.Collections.Generic;
+    using System.Globalization;
 
     public class OminifyOptions
     {
+        static readonly Func<VersionAlgorithmContext, string> versionAlgorithmDefault = v => v.LastModifiedUtc.Ticks.ToString(CultureInfo.InvariantCulture);
+
         readonly List<OminifyPackage> packages = new List<OminifyPackage>();
+
+        public OminifyOptions()
+        {
+            VersionAlgorithm = VersionAlgorithmDefault;
+        }
+
+        public Func<VersionAlgorithmContext, string> VersionAlgorithmDefault
+        {
+            get { return versionAlgorithmDefault; }
+        }
 
         public IEnumerable<OminifyPackage> Packages
         {
@@ -17,9 +31,16 @@ namespace Ominify
 
         public bool MinifyBundles { get; set; }
 
+        public Func<VersionAlgorithmContext, string> VersionAlgorithm { get; set; }
+
         public void AddPackage(OminifyPackage package)
         {
             packages.Add(package);
+        }
+
+        public class VersionAlgorithmContext
+        {
+            public DateTime LastModifiedUtc { get; set; }
         }
     }
 }

@@ -83,7 +83,14 @@
 
         static string GetUrl(OminifyPackage package)
         {
-            return string.Format("{0}?t={1}", package.PackagePath, package.GetLastModifiedUtc(options).Ticks);
+            var version = GetUrlVersion(package);
+            return string.Format("{0}?v={1}", package.PackagePath, version);
+        }
+
+        static string GetUrlVersion(OminifyPackage package)
+        {
+            var versionAlgorithmContext = new OminifyOptions.VersionAlgorithmContext { LastModifiedUtc = package.GetLastModifiedUtc(options) };
+            return options.VersionAlgorithm.Invoke(versionAlgorithmContext);
         }
 
         static OminifyPackage GetPackageOrThrow(string packagePath)

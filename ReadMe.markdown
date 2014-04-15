@@ -17,25 +17,34 @@ Secondly, configure the Ominifier in your OWIN startup class.
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            appBuilder
-                .UseOminifier(x =>
+            appBuilder.UseOminifier(x =>
+            {
+                if (DebugMode)
                 {
-                    x.EnableBundling = true;
-                    x.AutoRefreshOnFileChanges = true;
-                    x.MinifyBundles = true;
+                    // Recommended development/debug settings
+                    options.AutoRefreshOnFileChanges = true;
+                    options.EnableBundling = false;
+                    options.MinifyBundles = false;
+                }
+                else
+                {
+                    // Recommended production/release settings
+                    options.AutoRefreshOnFileChanges = false;
+                    options.EnableBundling = true;
+                    options.MinifyBundles = true;
+                }
 
-                    x.AddPackage(new YuiCssPackage("/content/css/minified.css").With(
-                        "/content/css/normalize-3.0.0.css", // Actual files
-                        "/content/css/font-awesome-4.0.3.css",
-                        "/content/css/layout.css"
-                        ));
-                    
-                    x.AddPackage(new YuiJsPackage("/content/js/minified.js").With(
-                        "/content/js/jquery-2.1.0.js",
-                        "/content/js/angular-1.2.0.js"
-                        ));
-                })
-                .UseNancy();
+                x.AddPackage(new YuiCssPackage("/content/css/minified-css").With(
+                    "/content/css/normalize-3.0.0.css", // Actual files
+                    "/content/css/font-awesome-4.0.3.css",
+                    "/content/css/layout.css"
+                    ));
+                
+                x.AddPackage(new YuiJsPackage("/content/js/minified-js").With(
+                    "/content/js/jquery-2.1.0.js",
+                    "/content/js/angular-1.2.0.js"
+                    ));
+            });
         }
     }
 
