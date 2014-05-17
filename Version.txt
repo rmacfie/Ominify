@@ -1,3 +1,9 @@
+0.3.0
+
++ Added simple CSS/JS packaging without minification (and without dependencies)
+
+============================================================
+
 0.2.1
 
 + Fixed version reference between packages

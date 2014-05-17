@@ -47,6 +47,8 @@
     <Compile Include="OminifyOptions.cs" />
     <Compile Include="OminifyPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleCssPackage.cs" />
+    <Compile Include="SimpleJsPackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages.config" />
