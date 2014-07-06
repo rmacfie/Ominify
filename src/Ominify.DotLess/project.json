@@ -1,12 +1,12 @@
 ﻿{
     "authors": [ "Robert Macfie" ],
-    "version": "0.4.0-alpha",
+    "version": "0.4.1-alpha",
     "compilationOptions": {
         "warningsAsErrors": true
     },
     "dependencies": {
         "dotless": "1.4.0",
-        "Ominify": ""
+        "Ominify.Core": ""
     },
     "configurations": {
         "net45": {

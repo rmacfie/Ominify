@@ -1,3 +1,9 @@
+0.4.1-alpha
+
++ Renamed Core project
+
+============================================================
+
 0.4.0-alpha
 
 + Upgraded to VS 14 and ASP.NET vNext
