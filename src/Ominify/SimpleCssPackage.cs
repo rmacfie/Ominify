@@ -6,11 +6,6 @@
         {
         }
 
-        protected override string Minify(string rawFileContent)
-        {
-            return rawFileContent;
-        }
-
         public override string GetContentType()
         {
             return "text/css";

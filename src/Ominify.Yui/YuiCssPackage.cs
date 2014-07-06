@@ -13,11 +13,6 @@
         {
         }
 
-        protected override string Minify(string rawFileContent)
-        {
-            return cssCompressor.Compress(rawFileContent);
-        }
-
         public override string GetContentType()
         {
             return cssCompressor.ContentType;
@@ -26,6 +21,16 @@
         public override string GetHtmlElement(string url)
         {
             return string.Format("<link rel=\"stylesheet\" href=\"{0}\" />", url);
+        }
+
+        protected override string ReadFileContent(string fileSystemPath, bool minify)
+        {
+            var rawFileContent = base.ReadFileContent(fileSystemPath, false);
+
+            if (minify)
+                return cssCompressor.Compress(rawFileContent);
+            else
+                return rawFileContent;
         }
     }
 }

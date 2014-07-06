@@ -1,9 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+
 namespace Ominify
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-
     public class OminifyOptions
     {
         static readonly Func<VersionAlgorithmContext, string> versionAlgorithmDefault = v => v.LastModifiedUtc.Ticks.ToString(CultureInfo.InvariantCulture);

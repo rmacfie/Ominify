@@ -69,7 +69,7 @@ $rootDir = Split-Path (Get-Variable MyInvocation -Scope Script).Value.MyCommand.
 $versionDetails = Update-Version "$rootDir\Version.txt" "$rootDir\Source\SharedAssemblyInfo.cs"
 
 # Build dir
-$rootBuildDir = "$rootDir\Build"
+$rootBuildDir = "$rootDir\build"
 $buildDir = "$rootBuildDir\$($versionDetails.fileVersion)"
 
 # Compile

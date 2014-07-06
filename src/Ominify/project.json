@@ -1,0 +1,15 @@
+﻿{
+    "authors": [ "Robert Macfie" ],
+    "version": "0.4.0-*",
+    "compilationOptions": {
+        "warningsAsErrors": true
+    },
+    "dependencies": { },
+    "configurations": {
+        "net45": {
+            "dependencies": {
+                "System.Runtime.Caching": ""
+            }
+        }
+    }
+}

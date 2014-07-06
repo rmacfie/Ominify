@@ -1,14 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Caching;
+using System.Text;
+
 namespace Ominify
 {
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Runtime.Caching;
-    using System.Text;
-
     public abstract class OminifyPackage
     {
-        static readonly MemoryCache cache = new MemoryCache("OMinifierPackageCache");
+        static readonly MemoryCache cache = new MemoryCache("OminifierPackageCache");
         static readonly string rootFileSystemPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
         static readonly object syncLock = new object();
 
@@ -27,8 +27,6 @@ namespace Ominify
         {
             get { return packagePath; }
         }
-
-        protected abstract string Minify(string rawFileContent);
 
         public abstract string GetContentType();
 
@@ -79,6 +77,16 @@ namespace Ominify
             return filePaths.AsReadOnly();
         }
 
+        protected virtual string ReadFileContent(string fileSystemPath, bool minify)
+        {
+            return File.ReadAllText(fileSystemPath);
+        }
+
+        protected virtual DateTime ReadFileLastModifiedUtc(string fileSystemPath)
+        {
+            return File.GetLastWriteTimeUtc(fileSystemPath);
+        }
+
         PackageContentItem GetOrLoadContentItem(OminifyOptions options)
         {
             isLocked = true;
@@ -112,16 +120,11 @@ namespace Ominify
 
             foreach (var fileSystemPath in fileSystemPaths)
             {
-                var content = File.ReadAllText(fileSystemPath);
-
-                if (options.MinifyBundles)
-                {
-                    content = Minify(content);
-                }
+                var content = ReadFileContent(fileSystemPath, options.MinifyBundles);
 
                 sb.AppendLine(content);
 
-                var lastModified = File.GetLastWriteTimeUtc(fileSystemPath);
+                var lastModified = ReadFileLastModifiedUtc(fileSystemPath);
                 if (topLastModified < lastModified)
                 {
                     topLastModified = lastModified;

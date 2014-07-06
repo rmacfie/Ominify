@@ -1,0 +1,16 @@
+﻿{
+    "authors": [ "Robert Macfie" ],
+    "version": "0.4.0-*",
+    "compilationOptions": {
+        "warningsAsErrors": true
+    },
+    "dependencies": {
+        "Ominify": "",
+        "YUICompressor.NET": "2.4.0"
+    },
+    "configurations": {
+        "net45": {
+            "dependencies": { }
+        }
+    }
+}
