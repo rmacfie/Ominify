@@ -1,6 +1,7 @@
-0.4.0
+0.4.0-alpha
 
 + Upgraded to VS 14 and ASP.NET vNext
++ Added dotLess package for transforming .less css
 
 ============================================================
 
